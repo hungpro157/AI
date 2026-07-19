@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Open portfolio (localhost)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:8080",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Start portfolio server"
+    },
+    {
+      "name": "Open portfolio (no server)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/index.html",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

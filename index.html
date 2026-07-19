@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07080c" />
+    <meta name="description" content="Personal profile" />
+    <title>Personal Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background" aria-hidden="true">
+      <div class="background__image" id="backgroundImage"></div>
+      <video id="backgroundVideo" autoplay muted loop playsinline></video>
+      <div class="background__overlay"></div>
+      <div class="background__glow"></div>
+      <div class="ocean-light ocean-light--one"></div>
+      <div class="ocean-light ocean-light--two"></div>
+      <div class="bubbles" id="bubbles"></div>
+      <div class="noise"></div>
+    </div>
+
+    <button class="intro" id="intro" type="button" aria-label="Bắt đầu">
+      <span class="intro__logo" id="introLogo">M</span>
+      <span class="intro__title" id="introTitle">Nhấn để bắt đầu</span>
+      <span class="intro__sub">Welcome to my little space</span>
+    </button>
+
+    <div class="music-player" id="musicPlayer">
+      <button class="sound" id="soundButton" type="button" aria-label="Phát hoặc tạm dừng nhạc">
+        <i data-lucide="play"></i>
+      </button>
+      <div class="equalizer" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="volume-wrap">
+        <i data-lucide="volume-1"></i>
+        <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Âm lượng" />
+        <output id="volumeValue" for="volumeSlider">50%</output>
+      </div>
+    </div>
+
+    <main class="profile" id="profile">
+      <div class="profile__card">
+        <div class="avatar-wrap">
+          <span class="avatar-ring"></span>
+          <img id="avatar" src="" alt="Ảnh đại diện" />
+          <span class="online" title="Online"></span>
+        </div>
+
+        <p class="eyebrow" id="eyebrow">WELCOME TO MY PROFILE</p>
+        <h1 id="name"></h1>
+        <p class="username" id="username"></p>
+        <p class="bio" id="bio"></p>
+        <p class="typing"><span id="typedText"></span><span class="caret"></span></p>
+
+        <div class="socials" id="socials" aria-label="Mạng xã hội"></div>
+
+        <a class="contact" id="contact" href="#">
+          <span>Liên hệ với mình</span><i data-lucide="arrow-up-right"></i>
+        </a>
+
+        <p class="quote" id="quote"></p>
+      </div>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> <span id="footerName"></span></span>
+      <span class="footer-dot"></span>
+      <span>Made with love</span>
+    </footer>
+
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <div class="youtube-player" id="youtubePlayer" aria-hidden="true"></div>
+    <audio id="backgroundMusic" loop preload="metadata"></audio>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
