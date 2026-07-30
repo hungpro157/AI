@@ -315,7 +315,7 @@
       name: $("#holidayName"), date: $("#holidayDate"), days: $("#holidayDays"),
       hours: $("#holidayHours"), minutes: $("#holidayMinutes"), seconds: $("#holidaySeconds"),
       diveClock: $("#diveClock"), diveSession: $("#diveSession"), diveHoliday: $("#diveHoliday"),
-      profileClock: $("#profileClock"), profileDate: $("#profileDate"),
+      profileClock: $("#profileClock"), profileSeconds: $("#profileSeconds"), profileDate: $("#profileDate"),
       profileEvent: $("#profileEvent"), profileEventCountdown: $("#profileEventCountdown"),
     };
     const dateFormatter = new Intl.DateTimeFormat("vi-VN", {
@@ -349,7 +349,9 @@
       elements.diveHoliday.textContent = isActive
         ? `NEXT EVENT // ${holiday.name.toUpperCase()} // NOW`
         : `NEXT EVENT // ${holiday.name.toUpperCase()} // ${days}D ${pad(hours)}H`;
-      elements.profileClock.textContent = clockFormatter.format(now).slice(0, 5);
+      const profileTime = clockFormatter.format(now);
+      elements.profileClock.textContent = profileTime.slice(0, 5);
+      elements.profileSeconds.textContent = profileTime.slice(-2);
       elements.profileDate.textContent = profileDateFormatter.format(now);
       elements.profileEvent.textContent = holiday.name;
       elements.profileEvent.title = holiday.name;

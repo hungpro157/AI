@@ -288,7 +288,9 @@ body.video-background-active .background__glow { opacity: .55; }
 .profile-hero .avatar-wrap img { width: 102px; }
 .profile-hero__time, .profile-hero__event { min-width: 0; text-align: left; }
 .profile-hero__time small, .profile-hero__event small { display: block; color: var(--primary); font-size: 5.5px; font-weight: 800; letter-spacing: .16em; }
-.profile-hero__time strong { display: block; margin-top: 5px; color: #f3f1f5; font-size: 1.65rem; line-height: 1; letter-spacing: -.055em; text-shadow: 0 0 20px rgba(255,255,255,.14); font-variant-numeric: tabular-nums; }
+.profile-hero__time strong { display: flex; align-items: flex-start; gap: 4px; margin-top: 5px; color: #f3f1f5; font-size: 1.65rem; line-height: 1; letter-spacing: -.055em; text-shadow: 0 0 20px rgba(255,255,255,.14); font-variant-numeric: tabular-nums; }
+.profile-hero__clock b { font: inherit; }
+.profile-hero__clock sup { min-width: 14px; padding-top: 2px; color: var(--primary); font-size: 7px; font-weight: 800; line-height: 1; letter-spacing: .04em; text-shadow: 0 0 9px color-mix(in srgb, var(--primary) 50%, transparent); }
 .profile-hero__time span, .profile-hero__event span { display: block; margin-top: 5px; overflow: hidden; color: #929a96; font-size: 6px; line-height: 1.45; text-overflow: ellipsis; white-space: nowrap; }
 .profile-hero__event { align-self: center; padding: 8px 0 8px 13px; border-left: 1px solid color-mix(in srgb, var(--primary) 26%, rgba(255,255,255,.1)); }
 .profile-hero__event strong { display: -webkit-box; margin-top: 6px; overflow: hidden; color: #e4e1e7; font-size: 9px; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }

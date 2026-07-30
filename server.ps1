@@ -109,7 +109,20 @@ function Send-FileResponse {
 Write-Output "Starting portfolio server on port $Port..."
 
 try {
-  $listener.Start()
+  try {
+    $listener.Start()
+  }
+  catch [System.Net.Sockets.SocketException] {
+    $probe = [System.Net.Sockets.TcpClient]::new()
+    try {
+      $probe.Connect([System.Net.IPAddress]::Loopback, $Port)
+      Write-Output "Portfolio server ready at http://127.0.0.1:$Port (already running)"
+      return
+    }
+    finally {
+      $probe.Dispose()
+    }
+  }
   Write-Output "Portfolio server ready at http://127.0.0.1:$Port"
 
   while ($true) {

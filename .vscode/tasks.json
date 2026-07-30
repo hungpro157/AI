@@ -18,9 +18,8 @@
       "problemMatcher": {
         "owner": "portfolio-server",
         "pattern": {
-          "regexp": "^(ERROR: )(.*)$",
-          "severity": 1,
-          "message": 2
+          "regexp": "^ERROR:\\s+(.*)$",
+          "message": 1
         },
         "background": {
           "activeOnStart": true,
