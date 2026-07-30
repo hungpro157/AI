@@ -325,6 +325,9 @@
     const dateFormatter = new Intl.DateTimeFormat("vi-VN", {
       timeZone: VIETNAM_TIME_ZONE, weekday: "long", day: "2-digit", month: "2-digit", year: "numeric",
     });
+    const profileDateFormatter = new Intl.DateTimeFormat("vi-VN", {
+      timeZone: VIETNAM_TIME_ZONE, weekday: "short", day: "2-digit", month: "2-digit",
+    });
     const clockFormatter = new Intl.DateTimeFormat("vi-VN", {
       timeZone: VIETNAM_TIME_ZONE, hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false,
     });
@@ -351,7 +354,7 @@
         ? `NEXT EVENT // ${holiday.name.toUpperCase()} // NOW`
         : `NEXT EVENT // ${holiday.name.toUpperCase()} // ${days}D ${pad(hours)}H`;
       elements.profileClock.textContent = clockFormatter.format(now).slice(0, 5);
-      elements.profileDate.textContent = dateFormatter.format(now);
+      elements.profileDate.textContent = profileDateFormatter.format(now);
       elements.profileEvent.textContent = holiday.name;
       elements.profileEvent.title = holiday.name;
       elements.profileEventCountdown.textContent = isActive

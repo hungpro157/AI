@@ -1146,6 +1146,12 @@ footer {
   .profile { padding: 76px 12px 48px; }
   .profile__card { padding: 28px 18px 24px; border-radius: 20px; }
   .avatar-wrap img { width: 100px; }
+  .profile-hero { min-height: 104px; grid-template-columns: 94px minmax(68px, .8fr) minmax(96px, 1.15fr); gap: 9px; }
+  .profile-hero .avatar-wrap img { width: 80px; }
+  .profile-hero__time strong { font-size: 1.3rem; }
+  .profile-hero__time span, .profile-hero__event span { font-size: 5px; }
+  .profile-hero__event { padding-left: 9px; }
+  .profile-hero__event strong { font-size: 7.5px; }
   .bio { max-width: 290px; }
   .socials { max-width: 290px; }
   .cursor-glow { display: none; }
@@ -1199,6 +1205,11 @@ footer {
   .profile { padding-inline: 9px; }
   .profile__card { padding-inline: 14px; border-radius: 20px; }
   .avatar-wrap img { width: 88px; }
+  .profile-hero { grid-template-columns: 82px minmax(62px, .75fr) minmax(88px, 1.1fr); gap: 7px; }
+  .profile-hero .avatar-wrap img { width: 70px; }
+  .profile-hero__time small, .profile-hero__event small { font-size: 4.5px; }
+  .profile-hero__time strong { font-size: 1.1rem; }
+  .profile-hero__time span { display: none; }
   .eyebrow { margin-top: 17px; }
   .bio { margin-top: 13px; }
   .socials { margin-top: 17px; }
