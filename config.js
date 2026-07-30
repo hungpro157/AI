@@ -31,7 +31,7 @@ const PROFILE_CONFIG = {
   background: {
     image: "assets/background-custom-hd.png",
     // Điền URL hoặc đường dẫn file MP4 nếu muốn dùng video nền.
-    video: "assets/video-1080p.mp4",
+    video: "",
   },
 
   music: {

@@ -319,6 +319,8 @@
       name: $("#holidayName"), date: $("#holidayDate"), days: $("#holidayDays"),
       hours: $("#holidayHours"), minutes: $("#holidayMinutes"), seconds: $("#holidaySeconds"),
       diveClock: $("#diveClock"), diveSession: $("#diveSession"), diveHoliday: $("#diveHoliday"),
+      profileClock: $("#profileClock"), profileDate: $("#profileDate"),
+      profileEvent: $("#profileEvent"), profileEventCountdown: $("#profileEventCountdown"),
     };
     const dateFormatter = new Intl.DateTimeFormat("vi-VN", {
       timeZone: VIETNAM_TIME_ZONE, weekday: "long", day: "2-digit", month: "2-digit", year: "numeric",
@@ -348,6 +350,13 @@
       elements.diveHoliday.textContent = isActive
         ? `NEXT EVENT // ${holiday.name.toUpperCase()} // NOW`
         : `NEXT EVENT // ${holiday.name.toUpperCase()} // ${days}D ${pad(hours)}H`;
+      elements.profileClock.textContent = clockFormatter.format(now).slice(0, 5);
+      elements.profileDate.textContent = dateFormatter.format(now);
+      elements.profileEvent.textContent = holiday.name;
+      elements.profileEvent.title = holiday.name;
+      elements.profileEventCountdown.textContent = isActive
+        ? "ĐANG DIỄN RA"
+        : `CÒN ${days} NGÀY ${pad(hours)} GIỜ`;
 
       if (diveStartedAt) {
         const sessionSeconds = Math.floor((Date.now() - diveStartedAt) / 1000);

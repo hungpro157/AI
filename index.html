@@ -39,10 +39,22 @@
       <article class="profile__card motion-section" id="profileCard">
         <span class="profile__shine" aria-hidden="true"></span>
 
-        <div class="avatar-wrap">
-          <span class="avatar-ring"></span>
-          <img id="avatar" src="" alt="Ảnh đại diện" />
-          <span class="online" title="Online"></span>
+        <div class="profile-hero">
+          <div class="avatar-wrap">
+            <span class="avatar-ring"></span>
+            <img id="avatar" src="" alt="Ảnh đại diện" />
+            <span class="online" title="Online"></span>
+          </div>
+          <div class="profile-hero__time">
+            <small>VIETNAM TIME</small>
+            <strong id="profileClock">--:--</strong>
+            <span id="profileDate">Đang đồng bộ...</span>
+          </div>
+          <div class="profile-hero__event">
+            <small>NEXT EVENT</small>
+            <strong id="profileEvent">Đang cập nhật...</strong>
+            <span id="profileEventCountdown">-- ngày</span>
+          </div>
         </div>
 
         <section class="presence-card" id="presenceCard" aria-label="Discord presence">
