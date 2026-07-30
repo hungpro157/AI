@@ -31,7 +31,7 @@ const PROFILE_CONFIG = {
   background: {
     image: "assets/background-custom-hd.png",
     // Điền URL hoặc đường dẫn file MP4 nếu muốn dùng video nền.
-    video: "",
+    video: "assets/video-1080p.mp4",
   },
 
   music: {
@@ -70,7 +70,6 @@ const PROFILE_CONFIG = {
       { name: "TikTok", label: "Video ngắn & xu hướng", color: "#ff6b9d", icon: "music" },
       { name: "YouTube", label: "Video & playlist", color: "#ff5d6c", icon: "youtube" },
     ],
-    vibes: ["🎧 Music on", "🌙 Cú đêm", "💬 Hay online", "✨ Chill thôi"],
     games: [
       {
         icon: "gamepad-2",
@@ -87,7 +86,6 @@ const PROFILE_CONFIG = {
         description: "Xoay bài, giữ máu và chờ một trận đấu thật đỏ.",
       },
     ],
-    status: "Hiện tại: có thể đang nghe nhạc, trong trận hoặc ngủ.",
   },
 
   snapshotSettings: {

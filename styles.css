@@ -392,7 +392,7 @@ h1 { margin: 0; color: transparent; font-size: clamp(2.35rem, 9vw, 3.6rem); line
   position: relative;
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 5px;
   margin-top: 18px;
   padding: 3px 3px 7px;

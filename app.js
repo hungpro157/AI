@@ -70,10 +70,6 @@
     $("#portfolioLabel").textContent = portfolio.label || "CONNECTED";
     $("#portfolioTitle").textContent = portfolio.title || "";
     $("#portfolioIntro").textContent = portfolio.intro || "";
-    $("#portfolioStatus").textContent = portfolio.status || "";
-    $("#interests").innerHTML = (portfolio.vibes || []).map(interest =>
-      `<button class="interest interactive-chip" type="button" aria-pressed="false">${interest}</button>`
-    ).join("");
     $("#projects").innerHTML = (portfolio.games || []).map(project => `
       <button class="project-card" type="button" aria-pressed="false">
         <span class="project-card__icon"><i data-lucide="${project.icon || "sparkles"}"></i></span>
@@ -343,12 +339,12 @@
       const seconds = Math.floor((remaining % 60000) / 1000);
       const isActive = holiday.start <= now && holiday.end > now;
 
-      elements.name.textContent = holiday.name;
-      elements.date.textContent = isActive ? "Đang diễn ra hôm nay" : dateFormatter.format(holiday.start);
-      elements.days.textContent = isActive ? "00" : pad(days);
-      elements.hours.textContent = isActive ? "00" : pad(hours);
-      elements.minutes.textContent = isActive ? "00" : pad(minutes);
-      elements.seconds.textContent = isActive ? "00" : pad(seconds);
+      if (elements.name) elements.name.textContent = holiday.name;
+      if (elements.date) elements.date.textContent = isActive ? "Đang diễn ra hôm nay" : dateFormatter.format(holiday.start);
+      if (elements.days) elements.days.textContent = isActive ? "00" : pad(days);
+      if (elements.hours) elements.hours.textContent = isActive ? "00" : pad(hours);
+      if (elements.minutes) elements.minutes.textContent = isActive ? "00" : pad(minutes);
+      if (elements.seconds) elements.seconds.textContent = isActive ? "00" : pad(seconds);
       elements.diveClock.textContent = `ICT // ${clockFormatter.format(now)}`;
       elements.diveHoliday.textContent = isActive
         ? `NEXT EVENT // ${holiday.name.toUpperCase()} // NOW`
