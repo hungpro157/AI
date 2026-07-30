@@ -21,7 +21,7 @@ const PROFILE_CONFIG = {
       syncAvatar: true,
       refreshInterval: 60000,
     },
-    bio: "Chill thôi — nghe nhạc, chơi game và xuất hiện khi có mood.",
+    bio: "Chill thôi — nghe nhạc, chơi game.",
     quote: "1 DEV tự do không có gì là sai",
     email: "lohai14753@gmail.com",
     introText: "CHẠM ĐỂ BẮT ĐẦU",
