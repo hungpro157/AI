@@ -40,9 +40,15 @@ const PROFILE_CONFIG = {
       {
         title: "Color Your Night / ver Nkay Nkay ft.",
         artist: "NH_HUNH",
-        file: "assets/music.mp3",
+        file: "assets/01-color-your-night.mp3",
         bpm: 135,
       },
+      {
+        title: "người đầu tiên.",
+        artist: "juKy San",
+        file: "assets/02-nguoi-dau-tien.mp3",
+        bpm: 120,
+      }
       // Thêm bài MP3: { title: "Tên bài", artist: "Ca sĩ", file: "assets/ten-bai.mp3", bpm: 120 },
       // Hoặc luồng MP3 bên ngoài: { title: "Tên bài", artist: "Ca sĩ", file: "https://domain.com/music.mp3", source: "WEB" },
     ],
