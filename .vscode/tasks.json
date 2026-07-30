@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start portfolio server",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\server.ps1",
+        "-Port",
+        "8080"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "portfolio-server",
+        "pattern": {
+          "regexp": "^(ERROR: )(.*)$",
+          "severity": 1,
+          "message": 2
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting portfolio server",
+          "endsPattern": "Portfolio server ready"
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}

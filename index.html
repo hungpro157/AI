@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07080c" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="description" content="Trang hồ sơ cá nhân của NH_HUNH" />
+    <link rel="icon" type="image/jpeg" href="assets/avatar.jpg" />
+    <title>Personal Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background" aria-hidden="true">
+      <div class="background__image" id="backgroundImage"></div>
+      <video id="backgroundVideo" autoplay muted loop playsinline></video>
+      <div class="background__overlay"></div>
+      <div class="background__glow"></div>
+      <div class="liquid-layer">
+        <span class="liquid-blob liquid-blob--one"></span>
+        <span class="liquid-blob liquid-blob--two"></span>
+      </div>
+      <div class="ocean-light ocean-light--one"></div>
+      <div class="ocean-light ocean-light--two"></div>
+      <div class="bubbles" id="bubbles"></div>
+      <div class="noise"></div>
+    </div>
+
+    <button class="intro" id="intro" type="button" aria-label="Bắt đầu">
+      <span class="intro__logo" id="introLogo">M</span>
+      <span class="intro__title" id="introTitle">Nhấn để bắt đầu</span>
+      <span class="intro__sub">ENTER MY LITTLE WORLD</span>
+    </button>
+
+    <main class="profile" id="profile">
+      <article class="profile__card motion-section" id="profileCard">
+        <span class="profile__shine" aria-hidden="true"></span>
+
+        <div class="avatar-wrap">
+          <span class="avatar-ring"></span>
+          <img id="avatar" src="" alt="Ảnh đại diện" />
+          <span class="online" title="Online"></span>
+        </div>
+
+        <section class="presence-card" id="presenceCard" aria-label="Discord presence">
+          <div class="presence-card__top">
+            <p class="eyebrow" id="eyebrow">WELCOME TO MY PROFILE</p>
+            <span class="presence-status" id="presenceStatus">
+              <i></i><span id="presenceStatusText">SYNCING</span>
+            </span>
+          </div>
+          <div class="presence-card__identity">
+            <div>
+              <h1 id="name"></h1>
+              <p class="username" id="username"></p>
+            </div>
+            <span class="presence-card__signal" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+          <p class="bio" id="bio"></p>
+          <div class="presence-activity">
+            <span class="presence-activity__icon"><i data-lucide="gamepad-2"></i></span>
+            <span>
+              <small id="presenceActivityLabel">CURRENT VIBE</small>
+              <strong id="presenceActivity">Đang kết nối Discord...</strong>
+            </span>
+          </div>
+          <div class="presence-card__bottom">
+            <p class="typing"><span id="typedText"></span><span class="caret"></span></p>
+            <div class="presence-badges" aria-label="Profile badges">
+              <span>DEV</span><span>GAMER</span><span>NIGHT OWL</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="music-player music-player--inline" id="musicPlayer">
+          <button class="sound" id="soundButton" type="button" aria-label="Phát hoặc tạm dừng nhạc">
+            <i data-lucide="play"></i>
+          </button>
+          <div class="equalizer" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="track-info" aria-live="polite">
+            <small>NOW PLAYING</small>
+            <strong id="trackTitle">Background Theme</strong>
+            <span class="track-info__meta">
+              <span id="trackArtist">NH_HUNH</span>
+              <em id="trackSource">LOCAL</em>
+            </span>
+          </div>
+          <div class="track-actions">
+            <button class="track-button" id="previousTrack" type="button" aria-label="Bài trước">
+              <i data-lucide="skip-back"></i>
+            </button>
+            <button class="track-button" id="nextTrack" type="button" aria-label="Bài tiếp theo">
+              <i data-lucide="skip-forward"></i>
+            </button>
+          </div>
+          <div class="volume-wrap">
+            <i data-lucide="volume-1"></i>
+            <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Âm lượng" />
+            <output id="volumeValue" for="volumeSlider">50%</output>
+          </div>
+          <button class="player-toggle" id="playerToggle" type="button" aria-label="Mở điều chỉnh âm lượng" aria-expanded="false">
+            <i data-lucide="sliders-horizontal"></i>
+          </button>
+        </div>
+
+        <nav class="profile-tabs" role="tablist" aria-label="Không gian cá nhân">
+          <button class="profile-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panelActivity" data-panel-target="panelActivity" data-accent="#d8d2de">
+            <i data-lucide="activity"></i><span>Hoạt động</span>
+          </button>
+          <button class="profile-tab" type="button" role="tab" aria-selected="false" aria-controls="panelVibe" data-panel-target="panelVibe" data-accent="#a5b0b8">
+            <i data-lucide="headphones"></i><span>Vibe</span>
+          </button>
+          <button class="profile-tab" type="button" role="tab" aria-selected="false" aria-controls="panelGaming" data-panel-target="panelGaming" data-accent="#b9a8c7">
+            <i data-lucide="gamepad-2"></i><span>Gaming</span>
+          </button>
+        </nav>
+
+        <div class="profile-panels" id="profilePanels">
+          <section class="profile-panel is-active" id="panelActivity" role="tabpanel">
+            <p class="portfolio__label" id="portfolioLabel"></p>
+            <h2 id="portfolioTitle"></h2>
+            <p class="portfolio__intro" id="portfolioIntro"></p>
+            <div class="social-activity" id="socialActivity" aria-label="Hoạt động mạng xã hội"></div>
+          </section>
+
+          <section class="profile-panel" id="panelVibe" role="tabpanel" hidden>
+            <div class="section-heading">
+              <i data-lucide="sparkles"></i>
+              <h3>Vibe hiện tại</h3>
+            </div>
+            <div class="vibe-card">
+              <span class="vibe-card__icon"><i data-lucide="headphones"></i></span>
+              <span>
+                <small>MOOD RIGHT NOW</small>
+                <strong>Music • Game • Late night</strong>
+              </span>
+              <i class="vibe-card__wave" data-lucide="audio-waveform"></i>
+            </div>
+            <div class="interest-list" id="interests"></div>
+            <p class="portfolio__status" id="portfolioStatus"></p>
+            <section class="holiday-card" aria-label="Đếm ngược đến ngày lễ tiếp theo">
+              <span class="holiday-card__icon"><i data-lucide="calendar-days"></i></span>
+              <div class="holiday-card__copy" aria-live="polite">
+                <small>NEXT HOLIDAY // VIETNAM</small>
+                <strong id="holidayName">Đang cập nhật...</strong>
+                <span id="holidayDate"></span>
+              </div>
+              <div class="holiday-timer" aria-label="Thời gian còn lại">
+                <span><b id="holidayDays">--</b><small>NGÀY</small></span>
+                <span><b id="holidayHours">--</b><small>GIỜ</small></span>
+                <span><b id="holidayMinutes">--</b><small>PHÚT</small></span>
+                <span><b id="holidaySeconds">--</b><small>GIÂY</small></span>
+              </div>
+            </section>
+          </section>
+
+          <section class="profile-panel" id="panelGaming" role="tabpanel" hidden>
+            <div class="section-heading">
+              <i data-lucide="gamepad-2"></i>
+              <h3>Game đang chơi</h3>
+            </div>
+            <div class="project-list" id="projects"></div>
+          </section>
+
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> <span id="footerName"></span></span>
+      <span class="footer-dot"></span>
+      <span>Made with love</span>
+    </footer>
+
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <div class="dive-hud" id="diveHud" aria-hidden="true">
+      <div class="dive-hud__top">
+        <span id="diveClock">ICT // --:--:--</span>
+        <span id="diveSession">SESSION // 00:00</span>
+      </div>
+      <div class="dive-hud__readout">
+        <span><small>MOOD</small><strong>CREATIVE</strong></span>
+        <span><small>SIGNAL</small><strong>ONLINE</strong></span>
+        <span><small>STATUS</small><strong>OPEN</strong></span>
+      </div>
+      <div class="dive-hud__focus">
+        <span class="dive-hud__sonar"><i></i></span>
+        <strong>FOCUS MODE</strong>
+        <small>DISCONNECT TO RECONNECT</small>
+      </div>
+      <div class="dive-hud__bottom">
+        <span id="diveHoliday">NEXT EVENT // SYNCING</span>
+        <span>D / ESC TO RETURN</span>
+      </div>
+    </div>
+
+    <section class="soundcloud-card" id="soundcloudCard" aria-label="Trình phát SoundCloud" aria-hidden="true" hidden>
+      <div class="soundcloud-card__bar">
+        <span class="soundcloud-card__source">
+          <i data-lucide="cloud"></i>
+          <span>
+            <small>SOUNDCLOUD PLAYER</small>
+            <strong id="soundcloudStatus" aria-live="polite">Đang kết nối...</strong>
+          </span>
+        </span>
+        <a id="soundcloudOpen" href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer" aria-label="Mở bài này trên SoundCloud">
+          <i data-lucide="external-link"></i>
+        </a>
+      </div>
+      <iframe class="soundcloud-player" id="soundcloudPlayer" title="SoundCloud music player" loading="lazy" allow="autoplay"></iframe>
+    </section>
+    <audio id="backgroundMusic" preload="metadata"></audio>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
