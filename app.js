@@ -574,10 +574,19 @@
         return;
       }
       if (usesLocalFile()) {
+        buffering = true;
+        updateIcon();
         try {
-          await initializeAudioAnalyzer();
-          await localMusic.play();
-        } catch (_) { wantsToPlay = false; }
+          const analyzerReady = initializeAudioAnalyzer();
+          const playbackStarted = localMusic.play();
+          await Promise.all([analyzerReady, playbackStarted]);
+        } catch (error) {
+          wantsToPlay = false;
+          buffering = false;
+          player.classList.add("has-error");
+          console.warn(`Không thể phát nhạc: ${currentTrack.file}`, error);
+          updateIcon();
+        }
       }
     };
 
@@ -663,7 +672,11 @@
     };
 
     updateTrackDisplay();
-    if (usesLocalFile()) localMusic.src = currentTrack.file;
+    if (usesLocalFile()) {
+      localMusic.preload = "auto";
+      localMusic.src = currentTrack.file;
+      localMusic.load();
+    }
 
     if (hasSoundCloudTracks) {
       const firstSoundCloudTrack = playlist.find(track => track.soundcloudUrl);
@@ -825,6 +838,27 @@
       syncVisualPhase();
       updateIcon();
       startAudioVisuals();
+    });
+    localMusic.addEventListener("waiting", () => {
+      if (!usesLocalFile() || !wantsToPlay) return;
+      buffering = true;
+      updateIcon();
+    });
+    localMusic.addEventListener("playing", () => {
+      if (!usesLocalFile()) return;
+      playing = true;
+      buffering = false;
+      player.classList.remove("has-error");
+      updateIcon();
+    });
+    localMusic.addEventListener("error", () => {
+      if (!usesLocalFile()) return;
+      playing = false;
+      buffering = false;
+      wantsToPlay = false;
+      player.classList.add("has-error");
+      updateIcon();
+      console.warn(`File nhạc không tải được: ${currentTrack.file}`);
     });
     localMusic.addEventListener("pause", () => {
       if (!usesLocalFile()) return;

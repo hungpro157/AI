@@ -62,7 +62,14 @@ function Send-FileResponse {
 
     if ($requestedStart) {
       $start = [long]$requestedStart
-      if ($requestedEnd) { $end = [Math]::Min([long]$requestedEnd, $fileLength - 1) }
+      if ($requestedEnd) {
+        $end = [Math]::Min([long]$requestedEnd, $fileLength - 1)
+      }
+      elseif ($ContentType -like "audio/*" -or $ContentType -like "video/*") {
+        # Keep media requests short so this lightweight single-threaded server
+        # can quickly serve the next browser range request.
+        $end = [Math]::Min($start + 1048575, $fileLength - 1)
+      }
     }
     elseif ($requestedEnd) {
       $suffixLength = [Math]::Min([long]$requestedEnd, $fileLength)

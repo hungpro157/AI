@@ -29,7 +29,7 @@ const PROFILE_CONFIG = {
   },
 
   background: {
-    image: "assets/background-custom-hd.png",
+    image: "",
     // Điền URL hoặc đường dẫn file MP4 nếu muốn dùng video nền.
     video: "assets/video-1080p.mp4",
   },
@@ -40,13 +40,13 @@ const PROFILE_CONFIG = {
       {
         title: "Color Your Night / ver Nkay Nkay ft.",
         artist: "NH_HUNH",
-        file: "assets/01-color-your-night.mp3",
+        file: "assets/01-color-your-night-web.mp3",
         bpm: 135,
       },
       {
         title: "người đầu tiên.",
         artist: "juKy San",
-        file: "assets/02-nguoi-dau-tien.mp3",
+        file: "assets/02-nguoi-dau-tien-web.mp3",
         bpm: 120,
       }
       // Thêm bài MP3: { title: "Tên bài", artist: "Ca sĩ", file: "assets/ten-bai.mp3", bpm: 120 },
